@@ -168,23 +168,21 @@ createRestaurantHTML = (restaurant) => {
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
-  name.setAttributeNode(tabindex);
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
-  neighborhood.setAttributeNode(tabindex);
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
-  address.setAttributeNode(tabindex);
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  more.href = DBHelper.urlForRestaurant(restaurant);  
+  li.append(more);
+  li.setAttributeNode(tabindex);
 
   return li
 }
