@@ -84,11 +84,15 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
+  const addressAriaLabel = document.createAttribute('aria-label');
+  addressAriaLabel.value = "Restaurant Address";
+  address.setAttributeNode(addressAriaLabel);
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} Restaurant`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -106,6 +110,10 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  const restaurantHoursAriaLabel = document.createAttribute('aria-label');
+  restaurantHoursAriaLabel.value = "Restaurant Hours";
+  hours.setAttributeNode(restaurantHoursAriaLabel);
+  
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
@@ -127,6 +135,10 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  const reviewsAriaLabel = document.createAttribute('aria-label');
+  reviewsAriaLabel.value = "Restaurant Reviews";
+  title.setAttributeNode(reviewsAriaLabel);
+
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
